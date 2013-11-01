@@ -10,7 +10,7 @@ $author = $res->getTVValue('wfAuthor');
 if(!$author)
 	$author = $res->get('createdby');
 
-$author = $this->modx->getObject('modUser', array('id' => $author));
+$author = $modx->getObject('modUser', array('id' => $author));
 $authorProfile = $author->getOne('Profile');
 
 return $modx->error->success('', array('author' => $authorProfile->toArray(), 'resource' => $res->toArray()));

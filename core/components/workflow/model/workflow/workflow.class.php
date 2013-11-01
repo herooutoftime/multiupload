@@ -103,7 +103,10 @@ require_once MODX_CORE_PATH.'model/modx/processors/resource/updatefromgrid.class
 
         if($success)
             $this->writeMgrLog();
+        
         // if($props['sendmail'])
+        $admin_group = $this->modx->getObject('modUserGroup', $this->modx->getOption('workflow.admin_group'));
+        if(!$this->modx->user->isMember($admin_group->get('name')))
             if($this->sendMail())
                 $success = true;
         

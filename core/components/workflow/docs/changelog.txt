@@ -1,5 +1,13 @@
 Changelog for Workflow
 
+Workflow 1.0.4
+---------------------------------
+* Indicator added which get injected into mgr topnav shows awaiting resources
+
+Workflow 1.0.3
+---------------------------------
+* Admins do not receive emails when editing resources
+
 Workflow 1.0.2
 ---------------------------------
 * Added new contextmenu to publish/unpublish resources

@@ -47,6 +47,8 @@ $_lang['setting_workflow.admin_group'] = 'Admin Group';
 $_lang['setting_workflow.admin_group_desc'] = 'Which group is allowed to send emails to their authors/editors?';
 $_lang['setting_workflow.admin_email'] = 'Admin E-Mail';
 $_lang['setting_workflow.admin_email_desc'] = 'The recipient receiving Workflow related administrative mails';
+$_lang['setting_workflow.exclude'] = 'Exclude folders by ID';
+$_lang['setting_workflow.exclude_desc'] = 'Exclude certain folders/containers from workflow. Expects a comma-separated string (25,26,27)';
 
 $_lang['workflow.dashboard.title'] = 'Workflow';
 $_lang['workflow.dashboard.description'] = '';

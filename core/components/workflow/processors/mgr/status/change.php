@@ -24,6 +24,6 @@ $this->modx->workflow->config['props'] = $scriptProperties;
 // 	);
 
 if($this->modx->workflow->process())
-	return $this->modx->error->success('E-Mail was sent!');
+	return $this->modx->error->success();
 
 return $this->modx->error->failure('');

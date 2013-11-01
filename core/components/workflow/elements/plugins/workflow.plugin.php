@@ -55,14 +55,14 @@ switch($event) {
 		$modx->regClientStartupScript($workflow->config['assetsUrl'] . 'js/workflow.js');
 		$modx->regClientStartupHTMLBlock('<script type="text/javascript">
 		Ext.onReady(function() {
-			if(MODx.isEmpty(Workflow)) {
+			// if(MODx.isEmpty(Workflow)) {
 			    Workflow.config = '.$modx->toJSON($workflow->config).';
 			    Workflow.config.connector_url = "'.$workflow->config['connectorUrl'].'";
 			    Workflow.config.assets_url = "'.$workflow->config['assetsUrl'].'";
 			    Workflow.request = '.$modx->toJSON($_GET).';
 			    Workflow.action = "'.(!empty($_REQUEST['a']) ? $_REQUEST['a'] : 0).'";
 			    Workflow.site_id = "'. $modx->site_id .'";
-			}
+			// }
 		});
 		</script>');
 		$modx->regClientStartupScript($workflow->config['assetsUrl'] . 'js/workflow.plugin.js');

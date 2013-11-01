@@ -15,10 +15,10 @@ Workflow.grid.DashboardResources = function(config) {
         ,baseParams: {
             action: 'mgr/resource/getlist'
         }
-        ,save_action: 'mgr/resource/updateFromGrid'
+        ,save_action: 'mgr/resource/updatefromgrid'
         ,autosave: true
         ,pageSize: 8
-        ,fields: ['id','pagetitle','description','editedon','deleted','published','publishedon','createdon','menu','status','status_nice','author','preview_url']
+        ,fields: ['id','context_key','pagetitle','description','editedon','deleted','published','publishedon','createdon','menu','status','status_nice','author','preview_url']
         ,columns: [{
             header: _('id')
             ,dataIndex: 'id'
@@ -76,6 +76,7 @@ Workflow.grid.DashboardResources = function(config) {
         },{
             xtype: 'workflow-combo-states'
             ,id: 'workflow-filter-states'
+            ,value: 'awaiting'
             ,name: 'state'
             ,listeners: {
                 'change': {fn: this.filterState, scope: this}
@@ -291,7 +292,7 @@ Workflow.combo.Authors = function(config) {
         ,valueField: 'id'
         ,fields: ['id', 'username']
         ,emptyText: 'Autor'
-        ,url: MODx.config['workflow.assets_url'] + "connector.php"
+        ,url: Workflow.config.connector_url
         ,baseParams: {
             action: 'mgr/author/getlist'
             ,combo: true

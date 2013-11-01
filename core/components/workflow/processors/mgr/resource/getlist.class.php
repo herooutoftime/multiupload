@@ -54,9 +54,15 @@ class WorkflowResourceGetlistProcessor extends modObjectGetListProcessor {
                 'TemplateVar.name' => 'wfAuthor',
                 'TemplateVarResources.value' => $this->getProperty('author')
             ));
-
-        $orderCase = '(CASE WHEN editedon = 0 THEN createdon ELSE editedon END)';
-        $c->sortby($orderCase, 'DESC');
+        $c->where(array(
+            'deleted' => 0
+            ));
+        // if($this->modx->getOptin())
+        // $orderDate = '(CASE WHEN editedon = 0 THEN createdon ELSE editedon END)';
+        // $c->sortby($orderDate, 'DESC');
+        $orderStatus = '(CASE WHEN status = \'awaiting\' THEN 1 ELSE 2 END)';
+        $c->sortby($orderStatus, 'ASC');
+        
         $c->select($this->modx->getSelectColumns('modResource','modResource', '', array('id', 'pagetitle', 'published', 'publishedon')));
         $c->select(array(
             'status' => $this->modx->getSelectColumns('modTemplateVarResource','TemplateVarResources', '', array('value')),
